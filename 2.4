@@ -1,0 +1,43 @@
+# Broc Salvati
+# January 4, 2026
+# This program displays a spreadsheet automation menu using a dictionary
+# and for-loop, validates user input, and displays the selection with timestamp.
+
+from datetime import datetime
+
+# Display the application title with student ID
+studentID = "Brosal3735"
+print(f"{studentID}'s Spreadsheet Automation Menu")
+
+# Store menu options in a dictionary
+menuOptions = {
+    1: "Input Data",
+    2: "View Current Data",
+    3: "Generate Report"
+}
+
+# Display menu prompt
+print("Choose a number from the following options")
+
+# Use a for-loop to display menu options
+for optionNumber, optionDescription in menuOptions.items():
+    print(f"{optionNumber} {optionDescription}")
+
+# Get user input
+choice = input()
+
+# Validate user input and display appropriate message
+try:
+    choiceNumber = int(choice)
+    
+    if choiceNumber in menuOptions:
+        # Valid choice: display selection with timestamp
+        print(f"You selected {choiceNumber} at {str(datetime.now())}")
+    else:
+        # Invalid choice: display error message
+        print("Error: invalid choice selected")
+        
+except ValueError:
+    # Handle non-numeric input
+    print("Error: invalid choice selected")
+
